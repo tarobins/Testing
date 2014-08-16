@@ -25,7 +25,7 @@ public class AddressBookImplTest {
 		
 		_contactStub = Mockito.mock(Contact.class);
 		Mockito.when(_contactStub.name()).thenReturn("Tom");
-		Mockito.when(_contactStub.homePhone()).thenReturn(_phoneStub);
+		Mockito.when(_contactStub.phone()).thenReturn(_phoneStub);
 		
 		_dialerStub = Mockito.mock(Dialer.class);
 		

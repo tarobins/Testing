@@ -22,7 +22,7 @@ public class SimpleContact implements Contact {
 	}
 
 	@Override
-	public PhoneNumber homePhone() {
+	public PhoneNumber phone() {
 		return _phone;
 	}
 	

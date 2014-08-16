@@ -28,7 +28,7 @@ public class AddressBookImpl implements AddressBook {
 	public PhoneNumber getHomePhone(String name) {
 		for (Contact c:_contacts) {
 			if (c.name().equals(name)) {
-				return c.homePhone();
+				return c.phone();
 			}
 		}
 		

@@ -19,7 +19,7 @@ public class SimpleContactTests {
 		SimpleContact simpleContact = new SimpleContact("Tom", phoneMock);
 	
 		assertEquals(simpleContact.name(), "Tom");
-		assertEquals(simpleContact.homePhone().toString(), "123456");
+		assertEquals(simpleContact.phone().toString(), "123456");
 	}
 
 }
