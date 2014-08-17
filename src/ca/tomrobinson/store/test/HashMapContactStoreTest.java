@@ -1,4 +1,4 @@
-package ca.tomrobinson.unittests;
+package ca.tomrobinson.store.test;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;

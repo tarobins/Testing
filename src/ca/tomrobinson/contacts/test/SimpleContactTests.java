@@ -1,4 +1,4 @@
-package ca.tomrobinson.unittests;
+package ca.tomrobinson.contacts.test;
 
 import static org.junit.Assert.assertEquals;
 

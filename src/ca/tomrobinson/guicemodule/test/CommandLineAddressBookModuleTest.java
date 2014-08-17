@@ -1,4 +1,4 @@
-package ca.tomrobinson.unittests;
+package ca.tomrobinson.guicemodule.test;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import ca.tomrobinson.guicemodule.CommandLineAddressBookModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public class CommandLineAddressBookTest {
+public class CommandLineAddressBookModuleTest {
 
 	Injector _injector;
 	
