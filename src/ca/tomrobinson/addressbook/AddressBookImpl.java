@@ -8,31 +8,27 @@ import com.google.inject.Inject;
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.contacts.PhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
+import ca.tomrobinson.store.ContactStore;
 
 public class AddressBookImpl implements AddressBook {
 	
-	private Collection<Contact> _contacts = new ArrayList<Contact>();
+	private ContactStore _store;
 	private Dialer _dialer;
 	
 	@Inject
-	public AddressBookImpl(Dialer dialer) {
+	public AddressBookImpl(Dialer dialer, ContactStore store) {
 		_dialer = dialer;
+		_store = store;
 	}
 	
 	@Override
 	public void add(Contact c) {
-		_contacts.add(c);
+		_store.addContact(c);
 	}
 	
 	@Override
 	public PhoneNumber getHomePhone(String name) {
-		for (Contact c:_contacts) {
-			if (c.name().equals(name)) {
-				return c.phone();
-			}
-		}
-		
-		return null;
+		return _store.retrieveContact(name).phone();
 	}
 
 	@Override

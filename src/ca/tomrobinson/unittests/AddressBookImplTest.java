@@ -10,12 +10,15 @@ import ca.tomrobinson.addressbook.AddressBookImpl;
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.contacts.PhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
+import ca.tomrobinson.store.ContactStore;
+import ca.tomrobinson.store.HashMapContactStore;
 
 public class AddressBookImplTest {
 
 	Contact _contactStub;
 	PhoneNumber _phoneStub;
 	Dialer _dialerStub;
+	ContactStore _storeStub;
 	
 	@Before
 	public void setupMocks() {
@@ -29,12 +32,14 @@ public class AddressBookImplTest {
 		
 		_dialerStub = Mockito.mock(Dialer.class);
 		
+		_storeStub = Mockito.mock(ContactStore.class);
+		Mockito.when(_storeStub.retrieveContact("Tom")).thenReturn(_contactStub);
 	}
 	
 	
 	@Test
 	public void addAndGetHomePhone() {
-		AddressBookImpl addressBook = new AddressBookImpl( _dialerStub);
+		AddressBookImpl addressBook = new AddressBookImpl( _dialerStub,_storeStub);
 		
 		addressBook.add(_contactStub);
 	
@@ -46,8 +51,7 @@ public class AddressBookImplTest {
 	
 	@Test
 	public void dialTest() {
-		
-		AddressBookImpl addressBook = new AddressBookImpl(_dialerStub);
+		AddressBookImpl addressBook = new AddressBookImpl(_dialerStub,_storeStub);
 		addressBook.add(_contactStub);
 		
 		addressBook.call("Tom");
