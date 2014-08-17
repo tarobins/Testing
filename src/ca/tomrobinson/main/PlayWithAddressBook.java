@@ -17,10 +17,10 @@ public class PlayWithAddressBook {
 		
 		AddressBook book = injector.getInstance(AddressBook.class);
 		
-		ContactFactory addressBookFactory = injector.getInstance(ContactFactory.class);
+		ContactFactory contactFactory = injector.getInstance(ContactFactory.class);
 		
-		PhoneNumber n = addressBookFactory.createPhone("405");
-		Contact c = addressBookFactory.createContact("Tom", n);
+		PhoneNumber n = contactFactory.createPhone("405");
+		Contact c = contactFactory.createContact("Tom", n);
 		
 		book.add(c);
 		

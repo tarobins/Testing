@@ -12,6 +12,8 @@ import ca.tomrobinson.contacts.SimpleContact;
 import ca.tomrobinson.contacts.SimplePhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.dialer.PrintScreenDialer;
+import ca.tomrobinson.store.ContactStore;
+import ca.tomrobinson.store.HashMapContactStore;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
@@ -24,6 +26,7 @@ public class CommandLineAddressBookModule extends AbstractModule {
 
 		bind(AddressBook.class).to(AddressBookImpl.class);
 		bind(Dialer.class).to(PrintScreenDialer.class);
+		bind(ContactStore.class).to(HashMapContactStore.class);
 		
 		install(new FactoryModuleBuilder()
 				.implement(Contact.class, SimpleContact.class)
