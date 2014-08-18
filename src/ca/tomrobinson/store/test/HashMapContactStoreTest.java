@@ -5,22 +5,23 @@ import static org.junit.Assert.assertSame;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.store.HashMapContactStore;
 
 public class HashMapContactStoreTest {
 
-	Contact _contactTom;
-	Contact _contactBob;
+	@Mock Contact _contactTom;
+	@Mock Contact _contactBob;
 	
 	@Before
 	public void setUp() throws Exception {
-		_contactTom = Mockito.mock(Contact.class);
-		Mockito.when(_contactTom.name()).thenReturn("Tom");
+		MockitoAnnotations.initMocks(this);
 		
-		_contactBob = Mockito.mock(Contact.class);
+		Mockito.when(_contactTom.name()).thenReturn("Tom");
 		Mockito.when(_contactBob.name()).thenReturn("Bob");
 	}
 

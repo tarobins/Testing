@@ -4,8 +4,10 @@ import java.util.HashMap;
 
 import ca.tomrobinson.contacts.Contact;
 
-public class HashMapContactStore implements ContactStore {
+public class HashMapContactStore implements SerializableContactStore {
 
+	private static final long serialVersionUID = 1L;
+	
 	HashMap<String, Contact> _map = new HashMap<String, Contact>();
 	
 	@Override

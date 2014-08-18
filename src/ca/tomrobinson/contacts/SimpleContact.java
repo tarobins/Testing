@@ -1,10 +1,14 @@
 package ca.tomrobinson.contacts;
 
+import java.io.Serializable;
+
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 
-public class SimpleContact implements Contact {
+public class SimpleContact implements Contact, Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private String _name;
 	private PhoneNumber _phone;
 	
