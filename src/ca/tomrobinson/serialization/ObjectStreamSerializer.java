@@ -1,43 +1,37 @@
 package ca.tomrobinson.serialization;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import com.google.inject.Inject;
 
-public class ObjectStreamSerializer<T extends Serializable> implements ObjectSerializer<T>, ObjectRetriever<T> {
+public class ObjectStreamSerializer<T extends Serializable> implements ObjectSerializer<T> {
 
 
-	ObjectStreamFactory _streamFactory;
+	ObjectOutputStream _stream;
 	
 	@Inject
-	public  ObjectStreamSerializer(ObjectStreamFactory streamFactory) {
-		_streamFactory = streamFactory;
+	public  ObjectStreamSerializer(ObjectOutputStream stream) {
+		_stream = stream;
 	}
 	
 	@Override
 	public void serialize(T object) {
 		try {
-			_streamFactory.outputStream().writeObject(object);
+			_stream.writeObject(object);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public T retrieve() {
-		T retrievedObject = null;
-		
+	public void close() {
 		try {
-			retrievedObject = (T) _streamFactory.inputStream().readObject();
-		} catch (ClassNotFoundException | IOException e) {
+			_stream.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		return retrievedObject;
-		
 	}
 
 }

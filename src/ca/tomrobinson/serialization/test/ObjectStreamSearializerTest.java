@@ -11,7 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.tomrobinson.serialization.ObjectStreamFactory;
+import ca.tomrobinson.serialization.ObjectStreamRetriever;
 import ca.tomrobinson.serialization.ObjectStreamSerializer;
 
 public class ObjectStreamSearializerTest {
@@ -34,28 +34,16 @@ public class ObjectStreamSearializerTest {
 	public void tearDown() throws Exception {
 	}
 	
-	private class TestObjectStreamFactory implements ObjectStreamFactory {
-
-		@Override
-		public ObjectOutputStream outputStream() {
-			return _outputStream; 
-		}
-
-		@Override
-		public ObjectInputStream inputStream() {
-			return _inputStream;
-		}
-		
-	}
 
 	@Test
 	public void testIntegerSerialization() {
-		ObjectStreamSerializer<Integer> fileSerializer = 
-				new ObjectStreamSerializer<Integer>(new TestObjectStreamFactory());
 		
-		fileSerializer.serialize(new Integer(42));
+		ObjectStreamSerializer<Integer> serializer = new ObjectStreamSerializer<>(_outputStream);
+		ObjectStreamRetriever<Integer> retriever = new ObjectStreamRetriever<>(_inputStream);
+	
+		serializer.serialize(new Integer(42));
 		
-		Integer result = fileSerializer.retrieve();
+		Integer result = retriever.retrieve();
 		
 		assertEquals(new Integer(42), result);
 		
