@@ -5,6 +5,7 @@ import ca.tomrobinson.contacts.ContactFactory;
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.contacts.PhoneNumber;
 import ca.tomrobinson.guicemodule.CommandLineAddressBookModule;
+import ca.tomrobinson.serialization.factories.FileReplacingSerializerFactory;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -28,7 +29,10 @@ public class PlayWithAddressBook {
 		
 		System.out.println(p.numberAsString());
 		book.call("Tom");
+		
+		FileReplacingSerializerFactory<Integer> serializerFactory = injector.getInstance(FileReplacingSerializerFactory.class);
 
+		
 	}
 
 }

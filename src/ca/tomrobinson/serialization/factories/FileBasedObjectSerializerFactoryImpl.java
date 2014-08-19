@@ -11,19 +11,17 @@ import java.io.Serializable;
 import ca.tomrobinson.serialization.ObjectStreamRetriever;
 import ca.tomrobinson.serialization.ObjectStreamSerializer;
 
-public class FileObjectSerializerFactory<T extends Serializable> implements ObjectStreamSerializerFactory<T> {
+public class FileBasedObjectSerializerFactoryImpl<T extends Serializable> implements FileBasedObjectSerializerFactory<T> {
 
-	File _file;
 	
-	public FileObjectSerializerFactory(File file) {
-		_file = file;
+	public FileBasedObjectSerializerFactoryImpl() {
 	}
 	
 	@Override
-	public ObjectStreamSerializer<T> getSerializer() {
+	public ObjectStreamSerializer<T> getSerializer(File file) {
 		
 		try {
-			FileOutputStream fileOutputStream = new FileOutputStream(_file);
+			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			return new ObjectStreamSerializer<>(objectOutputStream);
 		} catch (IOException e) {
@@ -34,10 +32,10 @@ public class FileObjectSerializerFactory<T extends Serializable> implements Obje
 	}
 
 	@Override
-	public ObjectStreamRetriever<T> getRetriever() {
+	public ObjectStreamRetriever<T> getRetriever(File file) {
 		
 		try {
-			FileInputStream fileInputStream = new FileInputStream(_file);
+			FileInputStream fileInputStream = new FileInputStream(file);
 			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 			return new ObjectStreamRetriever<>(objectInputStream);
 		} catch (IOException e) {
