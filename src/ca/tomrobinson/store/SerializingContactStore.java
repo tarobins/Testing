@@ -1,9 +1,9 @@
 package ca.tomrobinson.store;
 
-import com.google.inject.Inject;
-
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.serialization.ObjectSerializer;
+
+import com.google.inject.Inject;
 
 public class SerializingContactStore implements ContactStore {
 

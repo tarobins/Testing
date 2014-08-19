@@ -1,29 +1,36 @@
 package ca.tomrobinson.serialization;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import com.google.inject.Inject;
-import com.google.inject.assistedinject.Assisted;
+import ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactory;
 
-import ca.tomrobinson.serialization.factories.FileBasedObjectSerializerFactory;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 public class FileReplacingSerializer<T extends Serializable> implements ObjectSerializer<T> {
-
-	FileBasedObjectSerializerFactory<T> _streamSerializerFactory;
+	
+	FileBasedObjectStreamFactory _streamFactory;
 	File _file;
 
 	@Inject
-	public FileReplacingSerializer(@Assisted File file, FileBasedObjectSerializerFactory<T> streamSerializerFactory) {
+	public FileReplacingSerializer(@Named("storeFile") File file, FileBasedObjectStreamFactory streamFactory) {
 		_file = file;
-		_streamSerializerFactory = streamSerializerFactory;
+		_streamFactory = streamFactory;
 	}
 	
 	@Override
 	public void serialize(T object) {
-		ObjectStreamSerializer<T> serializer = _streamSerializerFactory.getSerializer(_file);
-		serializer.serialize(object);
-		serializer.close();
+		ObjectOutputStream stream = _streamFactory.getOutputStream(_file);
+		try {
+			stream.writeObject(object);
+			stream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

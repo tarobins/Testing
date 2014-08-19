@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="aopalliance.jar"/>
-	<classpathentry kind="lib" path="guice-3.0.jar"/>
+	<classpathentry kind="lib" path="guice-3.0.jar" sourcepath="guice-3.0-src/core/src"/>
 	<classpathentry kind="lib" path="guice-assistedinject-3.0.jar"/>
 	<classpathentry kind="lib" path="guice-grapher-3.0.jar"/>
 	<classpathentry kind="lib" path="guice-jmx-3.0.jar"/>

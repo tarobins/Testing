@@ -1,7 +1,5 @@
 package ca.tomrobinson.serialization.test;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PipedInputStream;
@@ -10,6 +8,7 @@ import java.io.PipedOutputStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
 
 import ca.tomrobinson.serialization.ObjectStreamRetriever;
 import ca.tomrobinson.serialization.ObjectStreamSerializer;
@@ -45,7 +44,7 @@ public class ObjectStreamSearializerTest {
 		
 		Integer result = retriever.retrieve();
 		
-		assertEquals(new Integer(42), result);
+		Assert.assertEquals(new Integer(42), result);
 		
 	}
 

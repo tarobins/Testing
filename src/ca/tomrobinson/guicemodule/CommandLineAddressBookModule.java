@@ -15,17 +15,16 @@ import ca.tomrobinson.serialization.FileReplacingRetriever;
 import ca.tomrobinson.serialization.FileReplacingSerializer;
 import ca.tomrobinson.serialization.ObjectRetriever;
 import ca.tomrobinson.serialization.ObjectSerializer;
-import ca.tomrobinson.serialization.factories.FileBasedObjectSerializerFactory;
-import ca.tomrobinson.serialization.factories.FileReplacingSerializerFactory;
+import ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactory;
+import ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactoryImpl;
 import ca.tomrobinson.store.ContactStore;
 import ca.tomrobinson.store.HashMapContactStore;
 import ca.tomrobinson.store.SerializableContactStore;
-import ca.tomrobinson.store.SerializingContactStore;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
+import com.google.inject.name.Names;
 
 public class CommandLineAddressBookModule extends AbstractModule {
 
@@ -34,28 +33,39 @@ public class CommandLineAddressBookModule extends AbstractModule {
 
 		bind(AddressBook.class).to(AddressBookImpl.class);
 		bind(Dialer.class).to(PrintScreenDialer.class);
-//		bind(ContactStore.class).to(SerializingContactStore.class); //TODO: need to prepopulate
-//		bind(SerializableContactStore.class).to(HashMapContactStore.class);
-		bind(FileBasedObjectSerializerFactory.class).to(FileBasedObjectSerializerFactory.class);
+		bind(FileBasedObjectStreamFactory.class).to(FileBasedObjectStreamFactoryImpl.class);
+
+//		bind(ObjectRetriever.class).to(FileReplacingRetriever.class);
+		bind(new TypeLiteral<ObjectRetriever<SerializableContactStore>>() {})
+			.to(new TypeLiteral<FileReplacingRetriever<SerializableContactStore>>() {});
+		
+//		bind(ObjectSerializer.class).to(FileReplacingSerializer.class);
+		bind(new TypeLiteral<ObjectSerializer<SerializableContactStore>>() {})
+			.to(new TypeLiteral<FileReplacingSerializer<SerializableContactStore>>() {});
+		
+		bind(File.class).annotatedWith(Names.named("storeFile"))
+			.toInstance(new File("storeFile"));
+		
+		bind(ContactStore.class).annotatedWith(Names.named("emptyStore"))
+			.to(HashMapContactStore.class);
+		
+		bind(ContactStore.class).toProvider(ContactStoreProvider.class);
 		
 		install(new FactoryModuleBuilder()
 				.implement(Contact.class, SimpleContact.class)
 				.implement(PhoneNumber.class, SimplePhoneNumber.class)
 				.build(ContactFactory.class));
 	
-		install(new FactoryModuleBuilder()
-				.implement(new TypeLiteral<ObjectRetriever<SerializableContactStore>>(){}, 
-						new TypeLiteral<FileReplacingRetriever<SerializableContactStore>>(){})
-				.implement(new TypeLiteral<ObjectSerializer<SerializableContactStore>>(){}, 
-						new TypeLiteral<FileReplacingSerializer<SerializableContactStore>>(){})
-				.build(FileReplacingSerializerFactory.class));
 	}
-//
+
 //	@Provides
 //	ContactStore providesContactStore() {
-//		return new FileReplacingSerializer<>(new FileObjectSerializerFactory<>(new File("TestFile")));
+//		File file = new File("store");
+//		
+//		
+//		
 //	}
-	
+//	
 	
 //	@Provides
 //	Collection<Contact> provideContactCollection() {
