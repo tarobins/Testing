@@ -35,21 +35,21 @@ public class CommandLineAddressBookModule extends AbstractModule {
 		bind(Dialer.class).to(PrintScreenDialer.class);
 		bind(FileBasedObjectStreamFactory.class).to(FileBasedObjectStreamFactoryImpl.class);
 
-//		bind(ObjectRetriever.class).to(FileReplacingRetriever.class);
 		bind(new TypeLiteral<ObjectRetriever<SerializableContactStore>>() {})
 			.to(new TypeLiteral<FileReplacingRetriever<SerializableContactStore>>() {});
 		
-//		bind(ObjectSerializer.class).to(FileReplacingSerializer.class);
 		bind(new TypeLiteral<ObjectSerializer<SerializableContactStore>>() {})
 			.to(new TypeLiteral<FileReplacingSerializer<SerializableContactStore>>() {});
 		
 		bind(File.class).annotatedWith(Names.named("storeFile"))
 			.toInstance(new File("storeFile"));
 		
-		bind(ContactStore.class).annotatedWith(Names.named("emptyStore"))
+		bind(ContactStore.class).annotatedWith(DefaultStore.class)
+			.toProvider(ContactStoreProvider.class);
+		
+		bind(SerializableContactStore.class).annotatedWith(EmptyStore.class)
 			.to(HashMapContactStore.class);
 		
-		bind(ContactStore.class).toProvider(ContactStoreProvider.class);
 		
 		install(new FactoryModuleBuilder()
 				.implement(Contact.class, SimpleContact.class)
@@ -57,20 +57,6 @@ public class CommandLineAddressBookModule extends AbstractModule {
 				.build(ContactFactory.class));
 	
 	}
-
-//	@Provides
-//	ContactStore providesContactStore() {
-//		File file = new File("store");
-//		
-//		
-//		
-//	}
-//	
-	
-//	@Provides
-//	Collection<Contact> provideContactCollection() {
-//		return new ArrayList<Contact>();
-//	}
 
 
 }

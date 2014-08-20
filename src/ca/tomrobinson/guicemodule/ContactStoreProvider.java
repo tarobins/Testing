@@ -6,6 +6,7 @@ import ca.tomrobinson.serialization.ObjectRetriever;
 import ca.tomrobinson.serialization.ObjectSerializer;
 import ca.tomrobinson.store.ContactStore;
 import ca.tomrobinson.store.SerializableContactStore;
+import ca.tomrobinson.store.SerializingContactStore;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -13,13 +14,13 @@ import com.google.inject.name.Named;
 
 public class ContactStoreProvider implements Provider<ContactStore> {
 
-	private ContactStore _emptyContactStore;
+	private SerializableContactStore _emptyContactStore;
 	private ObjectSerializer<SerializableContactStore> _serializer;
 	private ObjectRetriever<SerializableContactStore> _retriever;
 	private File _file;
 
 	@Inject
-	public ContactStoreProvider(@Named("emptyStore") ContactStore emptyContactStore,
+	public ContactStoreProvider(@EmptyStore SerializableContactStore emptyContactStore,
 			ObjectSerializer<SerializableContactStore> serializer,
 			ObjectRetriever<SerializableContactStore> retriever,
 			@Named("storeFile") File file) {
@@ -36,11 +37,11 @@ public class ContactStoreProvider implements Provider<ContactStore> {
 			SerializableContactStore possibleStore = _retriever.retrieve();
 		
 			if (possibleStore != null) {
-				return possibleStore;
+				return new SerializingContactStore(possibleStore, _serializer);
 			}
 		}
 		
-		return _emptyContactStore;
+		return new SerializingContactStore(_emptyContactStore, _serializer);
 		
 	}
 
