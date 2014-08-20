@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import ca.tomrobinson.guicemodule.StoreFile;
 import ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactory;
 
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 
 public class FileReplacingSerializer<T extends Serializable> implements ObjectSerializer<T> {
 	
@@ -16,7 +16,7 @@ public class FileReplacingSerializer<T extends Serializable> implements ObjectSe
 	File _file;
 
 	@Inject
-	public FileReplacingSerializer(@Named("storeFile") File file, FileBasedObjectStreamFactory streamFactory) {
+	public FileReplacingSerializer(@StoreFile File file, FileBasedObjectStreamFactory streamFactory) {
 		_file = file;
 		_streamFactory = streamFactory;
 	}

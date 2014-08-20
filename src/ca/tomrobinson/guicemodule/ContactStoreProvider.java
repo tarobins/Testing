@@ -23,7 +23,7 @@ public class ContactStoreProvider implements Provider<ContactStore> {
 	public ContactStoreProvider(@EmptyStore SerializableContactStore emptyContactStore,
 			ObjectSerializer<SerializableContactStore> serializer,
 			ObjectRetriever<SerializableContactStore> retriever,
-			@Named("storeFile") File file) {
+			@StoreFile File file) {
 		_emptyContactStore = emptyContactStore;
 		_serializer = serializer;
 		_retriever = retriever;

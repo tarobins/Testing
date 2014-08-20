@@ -41,7 +41,7 @@ public class CommandLineAddressBookModule extends AbstractModule {
 		bind(new TypeLiteral<ObjectSerializer<SerializableContactStore>>() {})
 			.to(new TypeLiteral<FileReplacingSerializer<SerializableContactStore>>() {});
 		
-		bind(File.class).annotatedWith(Names.named("storeFile"))
+		bind(File.class).annotatedWith(StoreFile.class)
 			.toInstance(new File("storeFile"));
 		
 		bind(ContactStore.class).annotatedWith(DefaultStore.class)
