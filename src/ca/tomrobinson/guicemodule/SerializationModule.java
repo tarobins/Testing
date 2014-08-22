@@ -19,8 +19,6 @@ public class SerializationModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		
-		bind(File.class).annotatedWith(StoreFile.class)
-			.toInstance(new File("storeFile"));
 		
 		bind(FileBasedObjectStreamFactory.class).to(FileBasedObjectStreamFactoryImpl.class);
 

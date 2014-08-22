@@ -1,6 +1,8 @@
 package ca.tomrobinson.store;
 
 import ca.tomrobinson.contacts.Contact;
+import ca.tomrobinson.guicemodule.annotations.DefaultStore;
+import ca.tomrobinson.guicemodule.annotations.EmptyStore;
 import ca.tomrobinson.serialization.ObjectSerializer;
 
 import com.google.inject.Inject;
@@ -11,7 +13,7 @@ public class SerializingContactStore implements ContactStore {
 	ObjectSerializer<SerializableContactStore> _serializer;
 
 	@Inject
-	public SerializingContactStore(SerializableContactStore contactStore, ObjectSerializer<SerializableContactStore> serializer) {
+	public SerializingContactStore(@EmptyStore SerializableContactStore contactStore, ObjectSerializer<SerializableContactStore> serializer) {
 		_serializer = serializer;
 		_contactStore = contactStore;
 	}
