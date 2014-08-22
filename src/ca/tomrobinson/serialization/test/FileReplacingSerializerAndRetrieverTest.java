@@ -1,12 +1,8 @@
 package ca.tomrobinson.serialization.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
 
 import org.junit.After;
 import org.junit.Before;

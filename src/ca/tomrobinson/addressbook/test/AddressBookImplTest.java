@@ -11,7 +11,6 @@ import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.contacts.PhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.store.ContactStore;
-import ca.tomrobinson.store.HashMapContactStore;
 
 public class AddressBookImplTest {
 
