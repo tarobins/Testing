@@ -1,5 +1,7 @@
 package ca.tomrobinson.store;
 
+import java.util.Iterator;
+
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.guicemodule.annotations.DefaultStore;
 import ca.tomrobinson.guicemodule.annotations.EmptyStore;
@@ -34,5 +36,11 @@ public class SerializingContactStore implements ContactStore {
 	public Contact retrieveContact(String name) {
 		return _contactStore.retrieveContact(name);
 	}
+
+	@Override
+	public Iterator<Contact> iterator() {
+		return _contactStore.iterator();
+	}
+	
 
 }

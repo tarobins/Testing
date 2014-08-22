@@ -2,7 +2,7 @@ package ca.tomrobinson.store;
 
 import ca.tomrobinson.contacts.Contact;
 
-public interface ContactStore {
+public interface ContactStore extends Iterable<Contact> {
 	
 	public void addContact(Contact contact);
 	public void removeContact(Contact contact);

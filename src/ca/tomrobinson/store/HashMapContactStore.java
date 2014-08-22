@@ -1,6 +1,7 @@
 package ca.tomrobinson.store;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import ca.tomrobinson.contacts.Contact;
 
@@ -23,6 +24,11 @@ public class HashMapContactStore implements SerializableContactStore {
 	@Override
 	public Contact retrieveContact(String name) {
 		return _map.get(name);
+	}
+
+	@Override
+	public Iterator<Contact> iterator() {
+		return _map.values().iterator();
 	}
 
 }
