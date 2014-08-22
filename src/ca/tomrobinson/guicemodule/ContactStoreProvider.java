@@ -2,6 +2,8 @@ package ca.tomrobinson.guicemodule;
 
 import java.io.File;
 
+import ca.tomrobinson.guicemodule.annotations.EmptyStore;
+import ca.tomrobinson.guicemodule.annotations.StoreFile;
 import ca.tomrobinson.serialization.ObjectRetriever;
 import ca.tomrobinson.serialization.ObjectSerializer;
 import ca.tomrobinson.store.ContactStore;

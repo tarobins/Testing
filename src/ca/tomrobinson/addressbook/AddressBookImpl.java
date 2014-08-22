@@ -3,7 +3,7 @@ package ca.tomrobinson.addressbook;
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.contacts.PhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
-import ca.tomrobinson.guicemodule.DefaultStore;
+import ca.tomrobinson.guicemodule.annotations.DefaultStore;
 import ca.tomrobinson.store.ContactStore;
 
 import com.google.inject.Inject;

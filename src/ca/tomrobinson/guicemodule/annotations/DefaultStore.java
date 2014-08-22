@@ -1,4 +1,4 @@
-package ca.tomrobinson.guicemodule;
+package ca.tomrobinson.guicemodule.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

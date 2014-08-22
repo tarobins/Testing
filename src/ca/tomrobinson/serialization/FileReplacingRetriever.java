@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
-import ca.tomrobinson.guicemodule.StoreFile;
+import ca.tomrobinson.guicemodule.annotations.StoreFile;
 import ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactory;
 
 import com.google.inject.Inject;
