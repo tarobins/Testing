@@ -65,7 +65,5 @@ public class FileReplacingSerializerAndRetrieverTest {
 		retrievedInteger = _retriever.retrieve();
 		
 		assertEquals(testInteger2, retrievedInteger);
-		
-		
 	}
 }
