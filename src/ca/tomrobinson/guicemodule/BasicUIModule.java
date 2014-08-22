@@ -2,7 +2,7 @@ package ca.tomrobinson.guicemodule;
 
 import ca.tomrobinson.ui.controller.BasicUIController;
 import ca.tomrobinson.ui.controller.BasicUIControllerImpl;
-import ca.tomrobinson.ui.controller.BasicUIView;
+import ca.tomrobinson.ui.view.BasicUIView;
 import ca.tomrobinson.ui.view.BasicUIViewImpl;
 
 import com.google.inject.AbstractModule;

@@ -19,7 +19,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import ca.tomrobinson.ui.controller.BasicUIListener;
-import ca.tomrobinson.ui.controller.BasicUIView;
 
 public class BasicUIViewImpl extends JFrame implements BasicUIView {
 

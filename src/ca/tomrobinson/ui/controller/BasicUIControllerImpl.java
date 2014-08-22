@@ -8,6 +8,7 @@ import ca.tomrobinson.contacts.ContactFactory;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.guicemodule.annotations.DefaultStore;
 import ca.tomrobinson.store.ContactStore;
+import ca.tomrobinson.ui.view.BasicUIView;
 
 import com.google.inject.Inject;
 

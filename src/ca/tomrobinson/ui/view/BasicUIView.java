@@ -1,4 +1,6 @@
-package ca.tomrobinson.ui.controller;
+package ca.tomrobinson.ui.view;
+
+import ca.tomrobinson.ui.controller.BasicUIListener;
 
 public interface BasicUIView {
 
