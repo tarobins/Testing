@@ -5,6 +5,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -32,6 +34,17 @@ public class BasicUIViewImpl extends JFrame implements BasicUIView {
 	
 	public BasicUIViewImpl() {
 		layoutDialog();
+		addCancelListener();
+	}
+	
+	private void addCancelListener() {
+		this.addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				_listener.cancelDialog();
+			}
+		});
 	}
 	
 	
@@ -40,6 +53,7 @@ public class BasicUIViewImpl extends JFrame implements BasicUIView {
 		
 		this.getContentPane().add(createLeftPanel());
 		this.getContentPane().add(createRightPanel());
+		this.pack();
 	}
 	
 	private JPanel createLeftPanel() {
@@ -63,7 +77,7 @@ public class BasicUIViewImpl extends JFrame implements BasicUIView {
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		
-		_nameField = new JTextField();
+		_nameField = new JTextField(10);
 		
 		panel.add(_nameField, constraints);
 		_nameField.getDocument().addDocumentListener(new DocumentListener() {
@@ -94,7 +108,7 @@ public class BasicUIViewImpl extends JFrame implements BasicUIView {
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
 		
-		_phoneField = new JTextField();
+		_phoneField = new JTextField(10);
 		
 		panel.add(_phoneField, constraints);
 		

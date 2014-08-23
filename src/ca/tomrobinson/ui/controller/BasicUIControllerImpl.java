@@ -91,6 +91,7 @@ public class BasicUIControllerImpl implements BasicUIController {
 		@Override
 		public void cancelDialog() {
 			_view.setVisible(false);
+			System.exit(0);
 		}
 		
 	}
