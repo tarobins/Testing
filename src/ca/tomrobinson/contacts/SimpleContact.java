@@ -29,6 +29,5 @@ public class SimpleContact implements Contact, Serializable {
 	public PhoneNumber phone() {
 		return _phone;
 	}
-	
-	
+
 }

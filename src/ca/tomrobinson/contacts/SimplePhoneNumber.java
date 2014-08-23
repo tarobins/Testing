@@ -25,5 +25,19 @@ public class SimplePhoneNumber implements PhoneNumber, Serializable {
 	public String numberAsString() {
 		return _phoneNumber;
 	}
+	
+	@Override
+	public boolean equals(Object other) {
+		if (other != null && other instanceof SimplePhoneNumber) {
+			if (this._phoneNumber != null) {
+				if (_phoneNumber.equals(((SimplePhoneNumber) other)._phoneNumber)) {
+					return true;
+				}
+			} else {
+				return ((SimplePhoneNumber)other)._phoneNumber == null;
+			}
+		}
+		return false;
+	}
 
 }
