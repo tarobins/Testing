@@ -3,7 +3,7 @@ package ca.tomrobinson.main;
 import javax.swing.SwingUtilities;
 
 import ca.tomrobinson.guicemodule.BasicGUIAddressBookModule;
-import ca.tomrobinson.ui.controller.BasicUIController;
+import ca.tomrobinson.ui.presenter.UIPresenter;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -13,7 +13,7 @@ public class GUIAddressBook {
 	public static void createGUI() {
 		Injector injector = Guice.createInjector(new BasicGUIAddressBookModule());
 		
-		BasicUIController controller = injector.getInstance(BasicUIController.class);
+		UIPresenter controller = injector.getInstance(UIPresenter.class);
 		
 		controller.go();
 	}

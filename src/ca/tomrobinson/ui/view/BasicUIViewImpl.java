@@ -20,7 +20,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import ca.tomrobinson.ui.controller.BasicUIListener;
+import ca.tomrobinson.ui.presenter.BasicUIListener;
 
 public class BasicUIViewImpl extends JFrame implements BasicUIView {
 

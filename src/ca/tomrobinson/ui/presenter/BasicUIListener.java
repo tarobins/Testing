@@ -1,4 +1,4 @@
-package ca.tomrobinson.ui.controller;
+package ca.tomrobinson.ui.presenter;
 
 public interface BasicUIListener {
 	

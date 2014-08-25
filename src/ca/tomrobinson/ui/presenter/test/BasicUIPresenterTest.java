@@ -1,4 +1,4 @@
-package ca.tomrobinson.ui.controller.test;
+package ca.tomrobinson.ui.presenter.test;
 
 import static org.junit.Assert.*;
 
@@ -19,11 +19,11 @@ import ca.tomrobinson.contacts.SimplePhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.store.ContactStore;
 import ca.tomrobinson.store.HashMapContactStore;
-import ca.tomrobinson.ui.controller.BasicUIControllerImpl;
-import ca.tomrobinson.ui.controller.BasicUIListener;
+import ca.tomrobinson.ui.presenter.BasicUIListener;
+import ca.tomrobinson.ui.presenter.BasicUIPresenter;
 import ca.tomrobinson.ui.view.BasicUIView;
 
-public class BasicUIControllerImplTest {
+public class BasicUIPresenterTest {
 
 	BasicUIView _viewStub;
 	Dialer _dialer = Mockito.mock(Dialer.class);
@@ -86,7 +86,7 @@ public class BasicUIControllerImplTest {
 		BasicUIView view = new UIViewStub();
 		
 		
-		BasicUIControllerImpl uiController = new BasicUIControllerImpl(view, store, _dialer, contactFactory);
+		BasicUIPresenter uiController = new BasicUIPresenter(view, store, _dialer, contactFactory);
 		
 		uiController.go();
 	}

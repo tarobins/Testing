@@ -1,4 +1,4 @@
-package ca.tomrobinson.ui.controller;
+package ca.tomrobinson.ui.presenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import ca.tomrobinson.ui.view.BasicUIView;
 
 import com.google.inject.Inject;
 
-public class BasicUIControllerImpl implements BasicUIController {
+public class BasicUIPresenter implements UIPresenter {
 
 	private ContactStore _contactStore; 
 	private BasicUIView _view;
@@ -25,7 +25,7 @@ public class BasicUIControllerImpl implements BasicUIController {
 	private int _selectedRow;
 	
 	@Inject
-	public BasicUIControllerImpl(BasicUIView view, @DefaultStore ContactStore contactStore, Dialer dialer, ContactFactory contactFactory) {
+	public BasicUIPresenter(BasicUIView view, @DefaultStore ContactStore contactStore, Dialer dialer, ContactFactory contactFactory) {
 		_contactStore = contactStore;
 		_view = view;
 		_dialer = dialer;

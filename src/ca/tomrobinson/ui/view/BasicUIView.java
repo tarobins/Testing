@@ -1,6 +1,6 @@
 package ca.tomrobinson.ui.view;
 
-import ca.tomrobinson.ui.controller.BasicUIListener;
+import ca.tomrobinson.ui.presenter.BasicUIListener;
 
 public interface BasicUIView {
 

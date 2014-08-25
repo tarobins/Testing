@@ -1,7 +1,7 @@
 package ca.tomrobinson.guicemodule;
 
-import ca.tomrobinson.ui.controller.BasicUIController;
-import ca.tomrobinson.ui.controller.BasicUIControllerImpl;
+import ca.tomrobinson.ui.presenter.BasicUIPresenter;
+import ca.tomrobinson.ui.presenter.UIPresenter;
 import ca.tomrobinson.ui.view.BasicUIView;
 import ca.tomrobinson.ui.view.BasicUIViewImpl;
 
@@ -11,7 +11,7 @@ public class BasicUIModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		bind(BasicUIController.class).to(BasicUIControllerImpl.class);
+		bind(UIPresenter.class).to(BasicUIPresenter.class);
 		bind(BasicUIView.class).to(BasicUIViewImpl.class);
 		
 	}
