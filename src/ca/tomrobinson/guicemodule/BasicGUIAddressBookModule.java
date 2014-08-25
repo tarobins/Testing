@@ -14,7 +14,6 @@ public class BasicGUIAddressBookModule extends AbstractModule {
 		bind(File.class).annotatedWith(StoreFile.class)
 			.toInstance(new File("storeFile"));
 		
-		install(new AddressBookModule());
 		install(new DialerModule());
 		install(new StoreModule());
 		install(new ContactModule());
