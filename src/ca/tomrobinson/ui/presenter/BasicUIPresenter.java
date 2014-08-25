@@ -37,7 +37,7 @@ public class BasicUIPresenter implements UIPresenter {
 	 */
 	@Override
 	public void go() {
-		_view.setListener(new UIListener());
+		_view.setListener(new ViewListener());
 		updateContactList();
 		_view.setVisible(true);
 	}
@@ -56,7 +56,7 @@ public class BasicUIPresenter implements UIPresenter {
 		
 	}
 	
-	private class UIListener implements BasicUIListener {
+	private class ViewListener implements BasicUIViewListener {
 
 		@Override
 		public void nameEntryChanged(String newName) {

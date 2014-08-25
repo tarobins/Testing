@@ -19,7 +19,7 @@ import ca.tomrobinson.contacts.SimplePhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.store.ContactStore;
 import ca.tomrobinson.store.HashMapContactStore;
-import ca.tomrobinson.ui.presenter.BasicUIListener;
+import ca.tomrobinson.ui.presenter.BasicUIViewListener;
 import ca.tomrobinson.ui.presenter.BasicUIPresenter;
 import ca.tomrobinson.ui.view.BasicUIView;
 
@@ -39,7 +39,7 @@ public class BasicUIPresenterTest {
 	
 	private class UIViewStub implements BasicUIView {
 
-		BasicUIListener _listener;
+		BasicUIViewListener _listener;
 		
 		@Override
 		public void setVisible(boolean visible) {
@@ -59,7 +59,7 @@ public class BasicUIPresenterTest {
 		}
 
 		@Override
-		public void setListener(BasicUIListener listener) {
+		public void setListener(BasicUIViewListener listener) {
 			_listener = listener;
 		}
 		

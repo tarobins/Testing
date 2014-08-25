@@ -1,6 +1,6 @@
 package ca.tomrobinson.ui.presenter;
 
-public interface BasicUIListener {
+public interface BasicUIViewListener {
 	
 	public void nameEntryChanged(String newName);
 	public void phoneEntryChanged(String newPhone);

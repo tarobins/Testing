@@ -20,11 +20,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import ca.tomrobinson.ui.presenter.BasicUIListener;
+import ca.tomrobinson.ui.presenter.BasicUIViewListener;
 
 public class BasicUIViewImpl extends JFrame implements BasicUIView {
 
-	private BasicUIListener _listener;
+	private BasicUIViewListener _listener;
 	private JTextField _nameField;
 	private JTextField _phoneField;
 	private JButton _addButton;
@@ -196,7 +196,7 @@ public class BasicUIViewImpl extends JFrame implements BasicUIView {
 	
 	
 	@Override
-	public void setListener(BasicUIListener listener) {
+	public void setListener(BasicUIViewListener listener) {
 		_listener = listener;
 	}
 	
