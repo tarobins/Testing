@@ -12,6 +12,14 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import com.google.inject.name.Named;
 
+/**
+ * An object retriever that starts reading from the start of the same file each time an
+ * object is retrieved 
+ * 
+ * @author trobinson
+ *
+ * @param <T> type of object that can be serialized
+ */
 public class FileReplacingRetriever<T extends Serializable> implements ObjectRetriever<T> {
 
 	FileBasedObjectStreamFactory _streamFactory;

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="aopalliance.jar"/>
 	<classpathentry kind="lib" path="guice-3.0.jar" sourcepath="guice-3.0-src/core/src"/>
 	<classpathentry kind="lib" path="guice-assistedinject-3.0.jar"/>
@@ -18,5 +17,6 @@
 	<classpathentry kind="lib" path="javax.inject.jar"/>
 	<classpathentry kind="lib" path="junit-4.11.jar"/>
 	<classpathentry kind="lib" path="mockito-all-1.9.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre8"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
