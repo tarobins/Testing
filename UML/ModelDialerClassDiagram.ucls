@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="ca.tomrobinson.ui.presenter.BasicUIPresenter" project="Testing" 
-    file="/Testing/src/ca/tomrobinson/ui/presenter/BasicUIPresenter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="167" y="144"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="2" language="java" name="ca.tomrobinson.store.ContactStore" project="Testing" 
+  <interface id="1" language="java" name="ca.tomrobinson.store.ContactStore" project="Testing" 
     file="/Testing/src/ca/tomrobinson/store/ContactStore.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="333" y="143"/>    
+    <position height="-1" width="-1" x="347" y="148"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </interface>  
-  <class id="3" language="java" name="ca.tomrobinson.store.SerializingContactStore" project="Testing" 
+  <class id="2" language="java" name="ca.tomrobinson.store.SerializingContactStore" project="Testing" 
     file="/Testing/src/ca/tomrobinson/store/SerializingContactStore.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="170" y="277"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
@@ -28,7 +19,7 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <interface id="4" language="java" name="ca.tomrobinson.serialization.ObjectSerializer" project="Testing" 
+  <interface id="3" language="java" name="ca.tomrobinson.serialization.ObjectSerializer" project="Testing" 
     file="/Testing/src/ca/tomrobinson/serialization/ObjectSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="378" y="270"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
@@ -37,7 +28,7 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </interface>  
-  <class id="5" language="java" name="ca.tomrobinson.serialization.FileReplacingSerializer" project="Testing" 
+  <class id="4" language="java" name="ca.tomrobinson.serialization.FileReplacingSerializer" project="Testing" 
     file="/Testing/src/ca/tomrobinson/serialization/FileReplacingSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="166" y="368"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
@@ -46,7 +37,7 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <interface id="6" language="java" name="ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactory" 
+  <interface id="5" language="java" name="ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactory" 
     project="Testing" file="/Testing/src/ca/tomrobinson/serialization/factories/FileBasedObjectStreamFactory.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="410" y="365"/>    
@@ -56,7 +47,7 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </interface>  
-  <class id="7" language="java" name="ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactoryImpl" 
+  <class id="6" language="java" name="ca.tomrobinson.serialization.factories.FileBasedObjectStreamFactoryImpl" 
     project="Testing" file="/Testing/src/ca/tomrobinson/serialization/factories/FileBasedObjectStreamFactoryImpl.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="189" y="456"/>    
@@ -66,40 +57,32 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <association id="8">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="9" name="_streamFactory"/>      
-      <multiplicity id="10" minimum="0" maximum="1"/>    
+  <association id="7">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="8" name="_serializer"/>      
+      <multiplicity id="9" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
+  <realization id="10">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
   <realization id="11">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
   </realization>  
   <realization id="12">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
   </realization>  
-  <realization id="13">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <association id="14">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="15" name="_serializer"/>      
-      <multiplicity id="16" minimum="0" maximum="1"/>    
+  <association id="13">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="14" name="_streamFactory"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="18" name="_contactStore"/>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
