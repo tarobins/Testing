@@ -30,7 +30,7 @@
   </interface>  
   <interface id="4" language="java" name="ca.tomrobinson.ui.view.BasicUIView" project="Testing" 
     file="/Testing/src/ca/tomrobinson/ui/view/BasicUIView.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="426" y="134"/>    
+    <position height="-1" width="-1" x="422" y="134"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </interface>  
   <class id="5" language="java" name="ca.tomrobinson.ui.view.BasicUIViewImpl" project="Testing" 
     file="/Testing/src/ca/tomrobinson/ui/view/BasicUIViewImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="422" y="320"/>    
+    <position height="-1" width="-1" x="422" y="325"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -55,30 +55,30 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </interface>  
-  <realization id="7">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <realization id="8">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <nesting id="9">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </nesting>  
-  <realization id="10">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="11">    
+  <association id="7">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="12" name="_listener"/>      
-      <multiplicity id="13" minimum="0" maximum="1"/>    
+      <attribute id="8" name="_listener"/>      
+      <multiplicity id="9" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
+  <realization id="10">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="11">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="12">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <nesting id="13">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
   <association id="14">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="15" name="_view"/>      
