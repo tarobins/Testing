@@ -4,7 +4,9 @@ import static org.junit.Assert.assertSame;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import ca.tomrobinson.addressbook.AddressBookImpl;
 import ca.tomrobinson.contacts.Contact;
@@ -14,24 +16,19 @@ import ca.tomrobinson.store.ContactStore;
 
 public class AddressBookImplTest {
 
-	Contact _contactStub;
-	PhoneNumber _phoneStub;
-	Dialer _dialerStub;
-	ContactStore _storeStub;
+	@Mock Contact _contactStub;
+	@Mock PhoneNumber _phoneStub;
+	@Mock Dialer _dialerStub;
+	@Mock ContactStore _storeStub;
 	
 	@Before
 	public void setupMocks() {
-
-		_phoneStub = Mockito.mock(PhoneNumber.class);
-//		Mockito.when(_phoneMock.numberAsString()).thenReturn("123456");
+		MockitoAnnotations.initMocks(this);
+//		Mockito.when(_phoneStub.numberAsString()).thenReturn("123456");
 		
-		_contactStub = Mockito.mock(Contact.class);
 		Mockito.when(_contactStub.name()).thenReturn("Tom");
 		Mockito.when(_contactStub.phone()).thenReturn(_phoneStub);
 		
-		_dialerStub = Mockito.mock(Dialer.class);
-		
-		_storeStub = Mockito.mock(ContactStore.class);
 		Mockito.when(_storeStub.retrieveContact("Tom")).thenReturn(_contactStub);
 	}
 	

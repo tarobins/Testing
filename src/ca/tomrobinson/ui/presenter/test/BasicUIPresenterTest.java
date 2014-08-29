@@ -1,15 +1,10 @@
 package ca.tomrobinson.ui.presenter.test;
 
-import static org.junit.Assert.*;
-
-import javax.swing.plaf.basic.BasicViewportUI;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-
-import com.google.inject.assistedinject.FactoryModuleBuilder;
+import org.mockito.MockitoAnnotations;
 
 import ca.tomrobinson.contacts.Contact;
 import ca.tomrobinson.contacts.ContactFactory;
@@ -19,39 +14,22 @@ import ca.tomrobinson.contacts.SimplePhoneNumber;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.store.ContactStore;
 import ca.tomrobinson.store.HashMapContactStore;
-import ca.tomrobinson.ui.presenter.BasicUIViewListener;
 import ca.tomrobinson.ui.presenter.BasicUIPresenter;
+import ca.tomrobinson.ui.presenter.BasicUIViewListener;
 import ca.tomrobinson.ui.view.BasicUIView;
 
 public class BasicUIPresenterTest {
 
-	BasicUIView _viewStub;
-	Dialer _dialer = Mockito.mock(Dialer.class);
-	
+	@Mock Dialer _dialer;
 	
 	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
 	}
 	
-	private class UIViewStub implements BasicUIView {
+	private class FakeUIView implements BasicUIView {
 
 		BasicUIViewListener _listener;
-		
-		@Override
-		public void setVisible(boolean visible) {
-			_listener.nameEntryChanged("Tom");
-			_listener.phoneEntryChanged("405");
-			_listener.addContact();
-			_listener.newContactSelected(0);
-			_listener.dialContact();
-			
-			Mockito.verify(_dialer).dialNumber(new SimplePhoneNumber("405"));
-			
-		}
 
 		@Override
 		public void setContactData(String[][] data) {
@@ -63,6 +41,29 @@ public class BasicUIPresenterTest {
 			_listener = listener;
 		}
 		
+		@Override
+		public void setVisible(boolean visible) {
+			_listener.nameEntryChanged("Tom");
+			_listener.phoneEntryChanged("405");
+			_listener.addContact();
+			_listener.newContactSelected(0);
+			_listener.dialContact();
+			
+			Mockito.verify(_dialer).dialNumber(new SimplePhoneNumber("405"));
+		}
+	}
+	
+	private static class FakeContactFactory implements ContactFactory {
+		
+		@Override
+		public PhoneNumber createPhone(String phone) {
+			return new SimplePhoneNumber(phone);
+		}
+		
+		@Override
+		public Contact createContact(String name, PhoneNumber phoneNumber) {
+			return new SimpleContact(name, phoneNumber);
+		}
 	}
 	
 
@@ -70,21 +71,9 @@ public class BasicUIPresenterTest {
 	public void test() {
 		
 		ContactStore store = new HashMapContactStore();
-		ContactFactory contactFactory = new ContactFactory() {
-			
-			@Override
-			public PhoneNumber createPhone(String phone) {
-				return new SimplePhoneNumber(phone);
-			}
-			
-			@Override
-			public Contact createContact(String name, PhoneNumber phoneNumber) {
-				return new SimpleContact(name, phoneNumber);
-			}
-		};
 		
-		BasicUIView view = new UIViewStub();
-		
+		BasicUIView view = new FakeUIView();
+		ContactFactory contactFactory = new FakeContactFactory();		
 		
 		BasicUIPresenter uiController = new BasicUIPresenter(view, store, _dialer, contactFactory);
 		

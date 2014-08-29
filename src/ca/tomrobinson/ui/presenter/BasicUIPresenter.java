@@ -32,9 +32,6 @@ public class BasicUIPresenter implements UIPresenter {
 		_contactFactory = contactFactory;
 	}
 	
-	/* (non-Javadoc)
-	 * @see ca.tomrobinson.ui.controller.BasicUIController#go()
-	 */
 	@Override
 	public void go() {
 		_view.setListener(new ViewListener());
