@@ -13,9 +13,9 @@ public class GUIAddressBook {
 	public static void createGUI() {
 		Injector injector = Guice.createInjector(new BasicGUIAddressBookModule());
 		
-		UIPresenter controller = injector.getInstance(UIPresenter.class);
+		UIPresenter presenter = injector.getInstance(UIPresenter.class);
 		
-		controller.go();
+		presenter.go();
 	}
 	
 	public static void main(String[] args) {
