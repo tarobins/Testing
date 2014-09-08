@@ -3,7 +3,6 @@ package ca.tomrobinson.store;
 import java.util.Iterator;
 
 import ca.tomrobinson.contacts.Contact;
-import ca.tomrobinson.guicemodule.annotations.DefaultStore;
 import ca.tomrobinson.guicemodule.annotations.EmptyStore;
 import ca.tomrobinson.serialization.ObjectSerializer;
 
@@ -15,9 +14,9 @@ public class SerializingContactStore implements ContactStore {
 	ObjectSerializer<SerializableContactStore> _serializer;
 
 	@Inject
-	public SerializingContactStore(@EmptyStore SerializableContactStore contactStore, ObjectSerializer<SerializableContactStore> serializer) {
+	public SerializingContactStore(@EmptyStore SerializableContactStore initialContactStore, ObjectSerializer<SerializableContactStore> serializer) {
 		_serializer = serializer;
-		_contactStore = contactStore;
+		_contactStore = initialContactStore;
 	}
 
 	@Override
