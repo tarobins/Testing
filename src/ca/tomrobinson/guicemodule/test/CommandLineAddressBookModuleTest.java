@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import ca.tomrobinson.addressbook.AddressBook;
 import ca.tomrobinson.contacts.Contact;
-import ca.tomrobinson.contacts.ContactFactory;
 import ca.tomrobinson.contacts.PhoneNumber;
+import ca.tomrobinson.contacts.factories.ContactFactory;
 import ca.tomrobinson.guicemodule.CommandLineAddressBookModule;
 
 import com.google.inject.Guice;

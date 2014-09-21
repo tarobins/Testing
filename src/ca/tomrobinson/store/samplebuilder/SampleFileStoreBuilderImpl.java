@@ -1,8 +1,8 @@
 package ca.tomrobinson.store.samplebuilder;
 
 import ca.tomrobinson.contacts.Contact;
-import ca.tomrobinson.contacts.ContactFactory;
 import ca.tomrobinson.contacts.PhoneNumber;
+import ca.tomrobinson.contacts.factories.ContactFactory;
 import ca.tomrobinson.guicemodule.annotations.DefaultStore;
 import ca.tomrobinson.store.ContactStore;
 

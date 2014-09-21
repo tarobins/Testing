@@ -7,10 +7,10 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import ca.tomrobinson.contacts.Contact;
-import ca.tomrobinson.contacts.ContactFactory;
 import ca.tomrobinson.contacts.PhoneNumber;
 import ca.tomrobinson.contacts.SimpleContact;
 import ca.tomrobinson.contacts.SimplePhoneNumber;
+import ca.tomrobinson.contacts.factories.ContactFactory;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.store.ContactStore;
 import ca.tomrobinson.store.HashMapContactStore;

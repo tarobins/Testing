@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.tomrobinson.contacts.Contact;
-import ca.tomrobinson.contacts.ContactFactory;
+import ca.tomrobinson.contacts.factories.ContactFactory;
 import ca.tomrobinson.dialer.Dialer;
 import ca.tomrobinson.guicemodule.annotations.DefaultStore;
 import ca.tomrobinson.store.ContactStore;
